@@ -1,6 +1,6 @@
 <template>
     
-    <div id="mainapp"  :class ="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'sunny':''">
+    <div id="mainapp" :class ="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'sunny':''">
         
         <main>
         
@@ -8,28 +8,22 @@
                 
                 <div>
                     <input  placeholder="Country/City" type="text" class="w-50 offset-3 form-control" v-model="query" @keypress="fetchWeather">
-                    <!-- {{ query }} -->
                 </div>
                
             </div>
 
                 <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
+                    
                     <div class="location-box">
-                        <div class="location">
-                            {{ weather.name }}, {{ weather.sys.country }}
-                        </div>
-                            
-                    <div class="date"> {{ dateBuilder() }} </div>
+                        <div class="location"> {{ weather.name }}, {{ weather.sys.country }} </div>     
+                        <div class="date"> {{ dateBuilder() }} </div>
+                    </div>
 
-                    </div>
                     <div class="weather-box">
-                         <div class="temp">
-                             {{ Math.round(weather.main.temp) }}°C
-                         </div>
-                         <div class="weather">
-                             {{ weather.weather[0].main }}
-                         </div>
+                         <div class="temp"> {{ Math.round(weather.main.temp) }}°C </div>
+                         <div class="weather"> {{ weather.weather[0].main }} </div>
                     </div>
+
                  </div>   
 
         </main>
@@ -43,10 +37,11 @@ export default{
 name: "WeatherAppComponent.vue",
     data(){
         return{
-            query: '',
-            app_key: '7862562e8c4afdf7accd95ffeda4515d',
-            base_url: 'https://api.openweathermap.org/data/2.5/',
+            query: "",
+            app_key: "7862562e8c4afdf7accd95ffeda4515d",
+            base_url: "https://api.openweathermap.org/data/2.5/",
             weather: {},
+            error: "",
         }
     },
     methods:{
@@ -57,6 +52,7 @@ name: "WeatherAppComponent.vue",
                     return res.json();
                 }).then(this.setResults)
             }
+
         },
 
             setResults:function(results){
@@ -81,8 +77,6 @@ name: "WeatherAppComponent.vue",
                 const month = months[d.getMonth()].substring(0,3);
                 const date = d.getDate();
                 const year = d.getFullYear();
-
-                
 
                 return `${day} ${month} ${date}, ${year}`;
 

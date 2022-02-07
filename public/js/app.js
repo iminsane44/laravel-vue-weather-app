@@ -5296,20 +5296,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "WeatherAppComponent.vue",
   data: function data() {
     return {
-      query: '',
-      app_key: '7862562e8c4afdf7accd95ffeda4515d',
-      base_url: 'https://api.openweathermap.org/data/2.5/',
-      weather: {}
+      query: "",
+      app_key: "7862562e8c4afdf7accd95ffeda4515d",
+      base_url: "https://api.openweathermap.org/data/2.5/",
+      weather: {},
+      error: ""
     };
   },
   methods: {
@@ -28412,11 +28407,11 @@ var render = function () {
               _c("div", { staticClass: "location-box" }, [
                 _c("div", { staticClass: "location" }, [
                   _vm._v(
-                    "\n                        " +
+                    " " +
                       _vm._s(_vm.weather.name) +
                       ", " +
                       _vm._s(_vm.weather.sys.country) +
-                      "\n                    "
+                      " "
                   ),
                 ]),
                 _vm._v(" "),
@@ -28428,18 +28423,12 @@ var render = function () {
               _c("div", { staticClass: "weather-box" }, [
                 _c("div", { staticClass: "temp" }, [
                   _vm._v(
-                    "\n                         " +
-                      _vm._s(Math.round(_vm.weather.main.temp)) +
-                      "°C\n                     "
+                    " " + _vm._s(Math.round(_vm.weather.main.temp)) + "°C "
                   ),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "weather" }, [
-                  _vm._v(
-                    "\n                         " +
-                      _vm._s(_vm.weather.weather[0].main) +
-                      "\n                     "
-                  ),
+                  _vm._v(" " + _vm._s(_vm.weather.weather[0].main) + " "),
                 ]),
               ]),
             ])
