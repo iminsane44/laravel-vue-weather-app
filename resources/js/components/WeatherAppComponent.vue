@@ -19,8 +19,8 @@
                             {{ weather.name }}, {{ weather.sys.country }}
                         </div>
                             
-                         
-                        <div class="date"> {{ dateBuilder() }} </div>
+                    <div class="date"> {{ dateBuilder() }} </div>
+
                     </div>
                     <div class="weather-box">
                          <div class="temp">
@@ -66,21 +66,21 @@ name: "WeatherAppComponent.vue",
 
             dateBuilder:function(){
                 
-                let d = new Date();
+                const d = new Date();
 
-                let days = [
+                const days = [
                     "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
                 ];
 
-                let months = [
+                const months = [
                     "January","February","March","April","May","June","July",
                     "August","September","October","November","December"
                 ];
 
-                let day = days[d.getDay()];
-                let month = months[d.getMonth()].substring(0,3);
-                let date = d.getDate();
-                let year = d.getFullYear();
+                const day = days[d.getDay()];
+                const month = months[d.getMonth()].substring(0,3);
+                const date = d.getDate();
+                const year = d.getFullYear();
 
                 
 
